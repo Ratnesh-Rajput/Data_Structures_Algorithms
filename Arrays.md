@@ -55,4 +55,20 @@ int removeDuplicates(vector<int> &arr, int n) {
 				return count;
 }
 ```
-=>3A: 
+=>3A: Leetcode
+```
+int removeDuplicates(vector<int>& nums) {
+        int i=0,j=0,count=1;
+        while(j<nums.size()){
+            if(nums[i]!=nums[j]){
+                nums[i+1]=nums[j];
+                count++;
+                i++ ;
+            }
+            else{
+                j++;
+            }
+        }
+        return count;
+    }
+```
