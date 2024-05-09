@@ -92,3 +92,27 @@ int removeDuplicates(vector<int>& nums) {
         return count;
     }
 ```
+4. Move Zeros:
+   a. using another array O(n) extra space comp.
+   b.using O(1) space
+   ```    void moveZeroes(vector<int>& a) {
+        int i=0,j=0;
+        while(i<a.size() && j< a.size()){
+           if(a[i]==0 && a[j]!=0){
+             a[i]=a[j];
+                a[j]=0;
+           }
+            if(a[j]==0 &&  a[i]==0){
+                j++;
+                continue;
+            }
+            if(a[i]!=0){
+                i++;
+                j++;
+                continue;
+            }
+           
+        }
+        return ;
+    }
+```
