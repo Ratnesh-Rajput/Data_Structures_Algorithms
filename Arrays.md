@@ -12,6 +12,26 @@
             return maxi;
     }
     ```
+ 1A: Second Largest
+```
+int print2largest(int arr[], int n) {
+	    int firmax=INT_MIN,secmax=INT_MIN;
+	    for(int i=0;i<n;i++){
+	           if(arr[i]>firmax){
+	               secmax=firmax;
+	               firmax=arr[i];
+	           }
+	           else if(arr[i]>secmax && arr[i]!=firmax){
+	               secmax=arr[i];
+	           }
+	    }
+	    if(secmax==INT_MIN){
+	        return -1;
+	    }
+	    return secmax;
+	    
+	}
+```   
 2. Check sorted array:
 ```
 int isSorted(int n, vector<int> a) {
