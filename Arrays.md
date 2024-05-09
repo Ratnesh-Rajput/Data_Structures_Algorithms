@@ -97,7 +97,8 @@ int removeDuplicates(vector<int>& nums) {
     a. using another array O(n) extra space comp.
 
     b.using O(1) space
-   ```    void moveZeroes(vector<int>& a) {
+   ```
+    void moveZeroes(vector<int>& a) {
         int i=0,j=0;
         while(i<a.size() && j< a.size()){
            if(a[i]==0 && a[j]!=0){
@@ -116,5 +117,24 @@ int removeDuplicates(vector<int>& nums) {
            
         }
         return ;
-    }
-```
+    }  ```
+
+5.MaxConsecutiveOnes
+   ```
+   int findMaxConsecutiveOnes(vector<int>& nums) {
+        int count=0,maxcount=0,i=0;
+        while(i<nums.size())
+        {
+            if(nums[i]==1){
+                count++;
+            }
+            else{
+               
+                maxcount = max(maxcount,count);
+                count=0;
+                }
+                i++;
+        }
+         maxcount=max (maxcount,count);
+       return maxcount; 
+    }```
