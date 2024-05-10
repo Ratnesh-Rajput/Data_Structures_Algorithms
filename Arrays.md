@@ -153,3 +153,49 @@ int singleNumber(vector<int>& nums) {
         return x;
     }
 ```
+7.find Union:
+
+a.can be done using map(O(nlogn) time)
+
+b.using 2 pointers linear approach
+
+```
+ vector<int> findUnion(int arr1[], int arr2[], int n, int m)
+    {   
+        vector<int>v;
+        int i=0,j=0;
+        if(arr1[i]<arr2[j]){
+          v.push_back(arr1[i]);
+            i++;
+        }
+        else if(arr1[i]>=arr2[j]){
+          v.push_back(arr2[j]);
+          j++;
+
+        }
+        while(i<n && j<m ){
+            if(arr1[i]<arr2[j]){
+                if(v[v.size()-1]<arr1[i]){v.push_back(arr1[i]);}
+                i++;
+            }
+            else if(arr1[i]>arr2[j] ){
+                if(v[v.size()-1]<arr2[j]){v.push_back(arr2[j]);}
+                j++;
+            }
+            else{
+               if(v[v.size()-1]<arr1[i]){v.push_back(arr1[i]);}
+                i++;j++;
+            }
+        }
+        while(i<n){
+            
+          if(v[v.size()-1]<arr1[i]){v.push_back(arr1[i]);}
+            i++;
+        }
+        while(j<m){
+           if(v[v.size()-1]<arr2[j]){v.push_back(arr2[j]);}
+            j++;
+        }
+        return v;
+    }
+```
