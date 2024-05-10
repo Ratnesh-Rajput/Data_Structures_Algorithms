@@ -199,3 +199,28 @@ b.using 2 pointers linear approach
         return v;
     }
 ```
+8.Longest subarray with given sum K(positives):
+
+```
+int lenOfLongSubarr(int arr[],  int N, int K) 
+    { 
+        int i=0,j=0,sum=0,cnt=0,mcnt=0;
+        while(j<N){
+            if(sum<K){
+                sum+=arr[j];
+                j++;
+            }
+            else if(sum>K){
+                sum-=arr[i];
+                i++;
+            }
+            else if(sum==K){
+                // cout<<j<<i;
+                cnt=j-i;
+                mcnt=max(mcnt,cnt);
+                j++;
+            }
+        }
+          return mcnt;
+    }
+```
