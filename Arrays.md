@@ -137,4 +137,19 @@ int removeDuplicates(vector<int>& nums) {
         }
          maxcount=max (maxcount,count);
        return maxcount; 
-    }```
+    }
+```
+6.Find the number that appears once, and other numbers twice:
+
+a. can be done using map(O(nlogn) time)
+
+b.using bit manipulation(O(n) time)
+```
+int singleNumber(vector<int>& nums) {
+        int x=0;
+        for(int i=0;i<nums.size();i++){
+            x=x^nums[i];
+        }
+        return x;
+    }
+```
