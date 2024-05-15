@@ -87,9 +87,9 @@ vector<vector<int>> getTreeTraversal(TreeNode *root){
 
       res.push_back(temp->val);
       s.pop();
-      if(temp->right!=NULL){q.push(temp->right);}
+      if(temp->right!=NULL){s.push(temp->right);}
 
-      if(temp->left!-NULL){ q.push(temp->left);}
+      if(temp->left!=NULL){ s.push(temp->left);}
 
       }
       return res; 
