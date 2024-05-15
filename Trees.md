@@ -7,7 +7,7 @@ int countNodes(int i) {
     }
 ```
 2. Binary Tree Representation
-3. Tree Traversal:
+3. Tree Traversal(pre, in, post-order recursive):
 
 ```
 vector<int>temp1;
@@ -66,5 +66,32 @@ vector<vector<int>> getTreeTraversal(TreeNode *root){
     res.push_back(temp3);
 
     return res;
+}
+```
+
+4.PreOrder Iterative Traversal:
+```
+//Using stack:
+
+ preOrderTraversal(TreeNode* root){
+      vector<int> res;
+
+      if(root==NULL){return;}
+
+      stack <TreeNode*> s;
+
+      s.push(root);
+
+      while(!s.empty()){
+      TreeNode* temp=s.top();
+
+      res.push_back(temp->val);
+      s.pop();
+      if(temp->right!=NULL){q.push(temp->right);}
+
+      if(temp->left!-NULL){ q.push(temp->left);}
+
+      }
+      return res; 
 }
 ```
