@@ -1,7 +1,6 @@
 // Remove Nth Node From End of List 
     // Brute Force:
-    class Solution {
-public:
+   
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         if(head==NULL|| head->next==NULL){return NULL;}
         ListNode* temp=head;
@@ -25,4 +24,24 @@ public:
         temp->next=temp->next->next;
         return head;
     }
-};
+// Optimized: single parsing
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(head==NULL|| head->next==NULL){return NULL;}
+        ListNode* fast=head;
+        ListNode* slow=head;
+        int count=0;
+        while(fast->next!=NULL){
+            if(count<=n){ count++;
+            if(count==n){continue;}
+            fast=fast->next;}
+            else{
+                // cout<<fast->val;
+                fast=fast->next;
+                // cout<<slow->val;
+                slow=slow->next;}
+        }
+        if(count<n ){return head->next;}
+       
+        slow->next=slow->next->next;
+        return head;
+    }
